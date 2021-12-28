@@ -17,7 +17,7 @@ class App extends React.Component {
         SchoolInfo: {
           schoolName: "",
           carrerName: "",
-          date: new Date(Date.now()),
+          date: "",
           isStuding: false,
         },
         ExperienceInfo: {

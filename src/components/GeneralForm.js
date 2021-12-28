@@ -9,7 +9,6 @@ export default class GeneralForm extends Component {
   }
   NextForm(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.formRendered("SchoolForm");
   }
   ChangeValueOfState(value, fieldToChange) {
@@ -29,7 +28,7 @@ export default class GeneralForm extends Component {
     }
     this.setState({
       ...newState,
-    }, ()=> console.log(this.state, newState));
+    });
   }
   render() {
     return (
