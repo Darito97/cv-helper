@@ -10,6 +10,7 @@ export default class GeneralForm extends Component {
   NextForm(e) {
     e.preventDefault();
     this.props.formRendered("SchoolForm");
+    this.props.ChangeInfoState('GeneralInfo', {...this.state})
   }
   ChangeValueOfState(value, fieldToChange) {
     let newState = {};

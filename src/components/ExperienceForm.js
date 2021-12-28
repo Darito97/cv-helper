@@ -3,9 +3,10 @@ import React, { Component } from "react";
 export default class ExperienceForm extends Component {
   constructor(props) {
     super(props);
-    
+    this.state = {...this.props.Info}
     this.LastForm = this.LastForm.bind(this);
     this.ShowInformation = this.ShowInformation.bind(this);
+    this.ChangeValueOfState = this.ChangeValueOfState.bind(this)
   }
   LastForm(e) {
     e.preventDefault();
@@ -14,6 +15,29 @@ export default class ExperienceForm extends Component {
   ShowInformation(e) {
     e.preventDefault();
     this.props.ChangeRenderedComponent("showInformation");
+    this.props.ChangeInfoState('ExperienceInfo', {...this.state})
+  }
+  ChangeValueOfState(value, fieldToChange){
+    let newState = {}
+    if(fieldToChange === "companyName"){
+      newState = {
+        companyName: value
+      }
+    }
+    else if(fieldToChange === "jobName"){
+      newState = {
+        jobName: value
+      }
+    }
+    else if(fieldToChange === "jobTime"){
+      newState = {
+        jobTime: value
+      }
+    }
+    this.setState({
+      ...newState
+    }, ()=>console.log(this.state))
+
   }
   render() {
     return (
@@ -27,7 +51,8 @@ export default class ExperienceForm extends Component {
             name="companyName"
             type="text"
             placeholder="Ej: Google"
-            
+            value={this.state.companyName}
+            onChange={e=> this.ChangeValueOfState(e.target.value, "companyName")}
           />
         </div>
         <div className="form__input-group">
@@ -38,6 +63,8 @@ export default class ExperienceForm extends Component {
             name="jobName"
             type="text"
             placeholder="Ej: Software engineer"
+            value={this.state.jobName}
+            onChange={e=> this.ChangeValueOfState(e.target.value, "jobName")}
           />
         </div>
         <div className="form__input-group">
@@ -48,6 +75,8 @@ export default class ExperienceForm extends Component {
             type="text"
             name="jobTime"
             placeholder="8 meses"
+            value={this.state.jobTime}
+            onChange={e=> this.ChangeValueOfState(e.target.value, "jobTime")}
           />
         </div>
         <button

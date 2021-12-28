@@ -10,6 +10,7 @@ export default class SchoolForm extends Component {
   NextForm(e) {
     e.preventDefault();
     this.props.formRendered("ExperienceForm");
+    this.props.ChangeInfoState('SchoolInfo', {...this.state})
   }
   ChangeValueOfState(value, fieldToChange) {
     let newState = {};
@@ -32,7 +33,7 @@ export default class SchoolForm extends Component {
     }
     this.setState({
       ...newState,
-    },()=>console.log(this.state));
+    });
   }
   render() {
     return (

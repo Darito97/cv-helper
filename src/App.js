@@ -35,7 +35,7 @@ class App extends React.Component {
       ...this.state,
       renderedComponent: componentToRender,
     });
-    console.log(this.state)
+    console.log(this.state);
   }
   ChangeInfoState(nameOfInfo, ObjectWithChanges) {
     if (nameOfInfo === "GeneralInfo") {
@@ -76,6 +76,9 @@ class App extends React.Component {
               this.ChangeRenderedComponent(nameOfComponent)
             }
             Info={this.state.Info}
+            ChangeInfoState={(nameOfInfo, ObjectWithChanges) =>
+              this.ChangeInfoState(nameOfInfo, ObjectWithChanges)
+            }
           />
         ) : (
           "Mostrar info"
