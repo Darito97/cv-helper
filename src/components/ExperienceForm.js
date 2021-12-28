@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 
 export default class ExperienceForm extends Component {
+  constructor(props) {
+    super(props);
+    this.LastForm = this.LastForm.bind(this);
+    this.ShowInformation = this.ShowInformation.bind(this)
+  }
+  LastForm(e) {
+    e.preventDefault();
+    this.props.formRendered("SchoolForm");
+  }
+  ShowInformation(e){
+    e.preventDefault()
+    this.props.ChangeRenderedComponent('showInformation')
+  }
   render() {
     return (
       <form className="forms__form">
@@ -46,6 +59,13 @@ export default class ExperienceForm extends Component {
           </label>
           <input type="text" name="jobTitme" placeholder="8 meses" />
         </div>
+        <button
+          type="submit"
+          className="form__button-submit"
+          onClick={(e) => this.ShowInformation(e)}
+        >
+          Agregar informacion
+        </button>
       </form>
     );
   }

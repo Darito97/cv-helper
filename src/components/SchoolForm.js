@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 
 export default class SchoolForm extends Component {
+  constructor(props) {
+    super(props);
+    this.NextForm = this.NextForm.bind(this);
+  }
+  NextForm(e) {
+    e.preventDefault();
+    this.props.formRendered("ExperienceForm");
+  }
   render() {
     return (
       <form className="forms__form">
@@ -35,6 +43,13 @@ export default class SchoolForm extends Component {
           <input type="checkbox" name="stillStuding" />
           <label htmlFor="stillStuding">Todavia estoy estudiando</label>
         </div>
+        <button
+          type="submit"
+          className="form__button-submit"
+          onClick={(e) => this.NextForm(e)}
+        >
+          Agregar informacion
+        </button>
       </form>
     );
   }

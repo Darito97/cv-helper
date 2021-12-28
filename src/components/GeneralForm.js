@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 
 export default class GeneralForm extends Component {
+  constructor(props) {
+    super(props);
+    this.NextForm = this.NextForm.bind(this)
+  }
+  NextForm(e){
+    e.preventDefault()
+    this.props.formRendered('SchoolForm')
+  }
   render() {
     return (
       <form className="forms__form">
@@ -38,6 +46,13 @@ export default class GeneralForm extends Component {
             placeholder="1234567890"
           />
         </div>
+        <button
+          type="submit"
+          className="form__button-submit"
+          onClick={e => this.NextForm(e)}
+        >
+          Agregar informacion
+        </button>
       </form>
     );
   }
