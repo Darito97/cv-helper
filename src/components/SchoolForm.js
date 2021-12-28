@@ -10,6 +10,7 @@ export default class SchoolForm extends Component {
     this.props.formRendered("ExperienceForm");
   }
   render() {
+    const { schoolName, carrerName, date, isStuding } = this.props.Info || "";
     return (
       <form className="forms__form">
         <h2 className="form__title">Experiencia educativa</h2>
@@ -22,6 +23,7 @@ export default class SchoolForm extends Component {
             type="text"
             name="schoolName"
             placeholder="Ej: UMSNH"
+            defaultValue={schoolName}
           />
         </div>
         <div className="form__input-group">
@@ -33,14 +35,15 @@ export default class SchoolForm extends Component {
             type="text"
             name="carrerName"
             placeholder="Ej: Tecnico en computacion"
+            defaultValue={carrerName}
           />
         </div>
         <div className="form__input-group">
           <label htmlFor="date" className="input-group__label">
             Ingresa la fecha de finalizacion de tu estudio:
           </label>
-          <input className="input-group__input" type="date" name="date" />
-          <input type="checkbox" name="stillStuding" />
+          <input className="input-group__input" type="date" name="date" defaultValue={date} />
+          <input type="checkbox" name="stillStuding" defaultChecked={isStuding}/>
           <label htmlFor="stillStuding">Todavia estoy estudiando</label>
         </div>
         <button

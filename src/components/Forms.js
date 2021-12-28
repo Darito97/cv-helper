@@ -21,11 +21,21 @@ class Forms extends React.Component {
     return (
       <div className="App__form">
         {this.state.formRendered === "GeneralForm" ? (
-          <GeneralForm formRendered={this.ChangeFormRendered} />
+          <GeneralForm
+            formRendered={this.ChangeFormRendered}
+            Info={this.props.Info.GeneralInfo}
+          />
         ) : this.state.formRendered === "SchoolForm" ? (
-          <SchoolForm formRendered={this.ChangeFormRendered} />
+          <SchoolForm
+            formRendered={this.ChangeFormRendered}
+            Info={this.props.Info.SchoolInfo}
+          />
         ) : (
-          <ExperienceForm formRendered={this.ChangeFormRendered} ChangeRenderedComponent={this.props.ChangeRenderedComponent}/>
+          <ExperienceForm
+            formRendered={this.ChangeFormRendered}
+            ChangeRenderedComponent={this.props.ChangeRenderedComponent}
+            Info={this.props.Info.ExperienceInfo}
+          />
         )}
       </div>
     );
