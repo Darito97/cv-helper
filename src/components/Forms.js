@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
 
-class Forms extends React.Component{
-  
-  render(){
-    const miaw = 'miaw'
-    return miaw
+import GeneralForm from "./GeneralForm";
+
+class Forms extends React.Component {
+  render() {
+    return (
+      <div className="App__form">
+        <GeneralForm />
+      </div>
+    );
   }
 }
 
-export default Forms
+export default Forms;
