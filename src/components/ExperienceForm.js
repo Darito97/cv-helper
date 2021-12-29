@@ -3,45 +3,58 @@ import React, { Component } from "react";
 export default class ExperienceForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {...this.props.Info}
-    this.LastForm = this.LastForm.bind(this);
+    this.state = { ...this.props.Info };
+    this.PreviousForm = this.PreviousForm.bind(this);
     this.ShowInformation = this.ShowInformation.bind(this);
-    this.ChangeValueOfState = this.ChangeValueOfState.bind(this)
+    this.ChangeValueOfState = this.ChangeValueOfState.bind(this);
   }
-  LastForm(e) {
+  PreviousForm(e) {
     e.preventDefault();
     this.props.formRendered("SchoolForm");
   }
   ShowInformation(e) {
     e.preventDefault();
+    let objectWithChanges = { ...this.state };
+    this.props.ChangeInfoState("ExperienceInfo", objectWithChanges);
     this.props.ChangeRenderedComponent("showInformation");
-    this.props.ChangeInfoState('ExperienceInfo', {...this.state})
   }
-  ChangeValueOfState(value, fieldToChange){
-    let newState = {}
-    if(fieldToChange === "companyName"){
+  ChangeValueOfState(value, fieldToChange) {
+    let newState = {};
+    if (fieldToChange === "companyName") {
       newState = {
-        companyName: value
-      }
-    }
-    else if(fieldToChange === "jobName"){
+        companyName: value,
+      };
+    } else if (fieldToChange === "jobName") {
       newState = {
-        jobName: value
-      }
-    }
-    else if(fieldToChange === "jobTime"){
+        jobName: value,
+      };
+    } else if (fieldToChange === "jobTime") {
       newState = {
-        jobTime: value
-      }
+        jobTime: value,
+      };
     }
     this.setState({
-      ...newState
-    }, ()=>console.log(this.state))
-
+      ...newState,
+    });
   }
   render() {
     return (
       <form className="forms__form">
+        <button
+          className="form__button-back"
+          onClick={e => this.PreviousForm(e)}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+          </svg>
+        </button>
         <h2 className="form__title">Experiencia laboral</h2>
         <div className="form__input-group">
           <label className="input-group__label" htmlFor="companyName">
@@ -52,7 +65,9 @@ export default class ExperienceForm extends Component {
             type="text"
             placeholder="Ej: Google"
             value={this.state.companyName}
-            onChange={e=> this.ChangeValueOfState(e.target.value, "companyName")}
+            onChange={(e) =>
+              this.ChangeValueOfState(e.target.value, "companyName")
+            }
           />
         </div>
         <div className="form__input-group">
@@ -64,7 +79,7 @@ export default class ExperienceForm extends Component {
             type="text"
             placeholder="Ej: Software engineer"
             value={this.state.jobName}
-            onChange={e=> this.ChangeValueOfState(e.target.value, "jobName")}
+            onChange={(e) => this.ChangeValueOfState(e.target.value, "jobName")}
           />
         </div>
         <div className="form__input-group">
@@ -76,7 +91,7 @@ export default class ExperienceForm extends Component {
             name="jobTime"
             placeholder="8 meses"
             value={this.state.jobTime}
-            onChange={e=> this.ChangeValueOfState(e.target.value, "jobTime")}
+            onChange={(e) => this.ChangeValueOfState(e.target.value, "jobTime")}
           />
         </div>
         <button

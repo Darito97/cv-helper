@@ -2,12 +2,14 @@ import "./App.css";
 import React from "react";
 
 import Forms from "./components/Forms";
+import Header from "./components/Header";
+import ShowInfo from "./components/ShowInfo";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      renderedComponent: "getInformation",
+      renderedComponent: "header",
       Info: {
         GeneralInfo: {
           name: "",
@@ -32,36 +34,31 @@ class App extends React.Component {
   }
   ChangeRenderedComponent(componentToRender) {
     this.setState({
-      ...this.state,
       renderedComponent: componentToRender,
     });
-    console.log(this.state);
   }
   ChangeInfoState(nameOfInfo, ObjectWithChanges) {
     if (nameOfInfo === "GeneralInfo") {
       this.setState({
-        ...this.state,
         Info: {
-          ...this.state.Info.SchoolInfo,
-          ...this.state.Info.ExperienceInfo,
           GeneralInfo: ObjectWithChanges,
+          SchoolInfo: { ...this.state.Info.SchoolInfo },
+          ExperienceInfo: { ...this.state.Info.ExperienceInfo },
         },
       });
     } else if (nameOfInfo === "SchoolInfo") {
       this.setState({
-        ...this.state,
         Info: {
-          ...this.state.Info.GeneralInfo,
-          ...this.state.Info.ExperienceInfo,
+          GeneralInfo: { ...this.state.Info.GeneralInfo },
           SchoolInfo: ObjectWithChanges,
+          ExperienceInfo: { ...this.state.Info.ExperienceInfo },
         },
       });
     } else {
       this.setState({
-        ...this.state,
         Info: {
-          ...this.state.Info.GeneralInfo,
-          ...this.state.Info.SchoolInfo,
+          SchoolInfo: { ...this.state.Info.SchoolInfo },
+          GeneralInfo: { ...this.state.Info.GeneralInfo },
           ExperienceInfo: ObjectWithChanges,
         },
       });
@@ -70,7 +67,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {this.state.renderedComponent === "getInformation" ? (
+        {this.state.renderedComponent === "header" ? (
+          <Header
+            ChangeRenderedComponent={(nameOfComponent) =>
+              this.ChangeRenderedComponent(nameOfComponent)
+            }
+          />
+        ) : this.state.renderedComponent === "getInformation" ? (
           <Forms
             ChangeRenderedComponent={(nameOfComponent) =>
               this.ChangeRenderedComponent(nameOfComponent)
@@ -81,7 +84,7 @@ class App extends React.Component {
             }
           />
         ) : (
-          "Mostrar info"
+          <ShowInfo Info={this.state.Info} />
         )}
       </div>
     );

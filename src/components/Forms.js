@@ -23,6 +23,7 @@ class Forms extends React.Component {
         {this.state.formRendered === "GeneralForm" ? (
           <GeneralForm
             formRendered={this.ChangeFormRendered}
+            ChangeRenderedComponent={this.props.ChangeRenderedComponent}
             Info={this.props.Info.GeneralInfo}
             ChangeInfoState = {this.props.ChangeInfoState}
           />
