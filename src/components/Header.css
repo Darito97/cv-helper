@@ -2,6 +2,12 @@
   color: #595959;
 }
 .header__button{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  min-width: 200px;
+
   padding: 6px;
 
   background-color: #F5F5F5;
