@@ -60,7 +60,7 @@ export default class SchoolForm extends Component {
             height="24px"
             viewBox="0 0 24 24"
             width="24px"
-            fill="#000000"
+            fill="#121212"
           >
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
@@ -126,6 +126,16 @@ export default class SchoolForm extends Component {
           onClick={(e) => this.NextForm(e)}
         >
           Agregar informacion
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#121212"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+          </svg>
         </button>
       </form>
     );

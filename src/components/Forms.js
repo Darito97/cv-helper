@@ -1,3 +1,4 @@
+import './Forms.css'
 import React from "react";
 
 import GeneralForm from "./GeneralForm";

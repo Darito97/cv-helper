@@ -53,7 +53,7 @@ export default class ExperienceForm extends Component {
             height="24px"
             viewBox="0 0 24 24"
             width="24px"
-            fill="#000000"
+            fill="#121212"
           >
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
@@ -65,6 +65,7 @@ export default class ExperienceForm extends Component {
             Nombre de la compañia
           </label>
           <input
+            className="input-group__input"
             name="companyName"
             type="text"
             placeholder="Ej: Google"
@@ -79,6 +80,7 @@ export default class ExperienceForm extends Component {
             Titulo del puesto
           </label>
           <input
+            className="input-group__input"
             name="jobName"
             type="text"
             placeholder="Ej: Software engineer"
@@ -91,6 +93,7 @@ export default class ExperienceForm extends Component {
             ¿Cuanto tiempo trabajaste ahi? (en meses)
           </label>
           <input
+            className="input-group__input"
             type="text"
             name="jobTime"
             placeholder="8 meses"
@@ -103,6 +106,7 @@ export default class ExperienceForm extends Component {
             Tareas principales del puesto
           </label>
           <textarea
+            className="input-group__input"
             cols="20"
             rows="10"
             name="mainTasks"
@@ -119,6 +123,16 @@ export default class ExperienceForm extends Component {
           onClick={(e) => this.ShowInformation(e)}
         >
           Agregar informacion
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#121212"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+          </svg>
         </button>
       </form>
     );
