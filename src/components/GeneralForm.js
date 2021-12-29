@@ -4,13 +4,13 @@ export default class GeneralForm extends Component {
   constructor(props) {
     super(props);
     this.state = { ...this.props.Info };
-    this.BackToHeader = this.BackToHeader.bind(this)
+    this.BackToHeader = this.BackToHeader.bind(this);
     this.NextForm = this.NextForm.bind(this);
     this.ChangeValueOfState = this.ChangeValueOfState.bind(this);
   }
-  BackToHeader(e){
-    e.preventDefault()
-    this.props.ChangeRenderedComponent("header")
+  BackToHeader(e) {
+    e.preventDefault();
+    this.props.ChangeRenderedComponent("header");
   }
   NextForm(e) {
     e.preventDefault();
@@ -32,6 +32,10 @@ export default class GeneralForm extends Component {
       newState = {
         number: value,
       };
+    } else if (fieldToChange === "job") {
+      newState = {
+        job: value,
+      };
     }
     this.setState({
       ...newState,
@@ -40,7 +44,10 @@ export default class GeneralForm extends Component {
   render() {
     return (
       <form className="forms__form">
-        <button className="form__button-back" onClick={e=>this.BackToHeader(e)}>
+        <button
+          className="form__button-back"
+          onClick={(e) => this.BackToHeader(e)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -90,6 +97,19 @@ export default class GeneralForm extends Component {
             placeholder="1234567890"
             value={this.state.number}
             onChange={(e) => this.ChangeValueOfState(e.target.value, "number")}
+          />
+        </div>
+        <div className="form__input-group">
+          <label htmlFor="job" className="input-group__label">
+            ¿Que profesional eres?
+          </label>
+          <input
+            className="input-group__input"
+            name="job"
+            type="text"
+            placeholder="Desarrollador web"
+            value={this.state.job}
+            onChange={(e) => this.ChangeValueOfState(e.target.value, "job")}
           />
         </div>
         <button

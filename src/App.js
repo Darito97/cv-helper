@@ -3,7 +3,7 @@ import React from "react";
 
 import Forms from "./components/Forms";
 import Header from "./components/Header";
-import ShowInfo from "./components/ShowInfo";
+import ShowCV from "./components/ShowCV";
 
 class App extends React.Component {
   constructor() {
@@ -15,6 +15,7 @@ class App extends React.Component {
           name: "",
           email: "",
           number: "",
+          job: ""
         },
         SchoolInfo: {
           schoolName: "",
@@ -25,6 +26,7 @@ class App extends React.Component {
         ExperienceInfo: {
           companyName: "",
           jobName: "",
+          mainTasks: "",
           jobTime: "",
         },
       },
@@ -84,7 +86,7 @@ class App extends React.Component {
             }
           />
         ) : (
-          <ShowInfo Info={this.state.Info} />
+          <ShowCV Info={this.state.Info} />
         )}
       </div>
     );

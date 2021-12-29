@@ -32,6 +32,10 @@ export default class ExperienceForm extends Component {
       newState = {
         jobTime: value,
       };
+    } else if (fieldToChange === "mainTasks") {
+      newState = {
+        mainTasks: value,
+      };
     }
     this.setState({
       ...newState,
@@ -42,7 +46,7 @@ export default class ExperienceForm extends Component {
       <form className="forms__form">
         <button
           className="form__button-back"
-          onClick={e => this.PreviousForm(e)}
+          onClick={(e) => this.PreviousForm(e)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -93,6 +97,21 @@ export default class ExperienceForm extends Component {
             value={this.state.jobTime}
             onChange={(e) => this.ChangeValueOfState(e.target.value, "jobTime")}
           />
+        </div>
+        <div className="form__input-group">
+          <label className="input-group__label" htmlFor="mainTasks">
+            Tareas principales del puesto
+          </label>
+          <textarea
+            cols="20"
+            rows="10"
+            name="mainTasks"
+            placeholder="Liderar un equipo, manejo de inventario, SCRUM..."
+            value={this.state.mainTasks}
+            onChange={(e) =>
+              this.ChangeValueOfState(e.target.value, "mainTasks")
+            }
+          ></textarea>
         </div>
         <button
           type="submit"
