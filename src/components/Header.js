@@ -1,3 +1,4 @@
+import './Header.css'
 import React from "react";
 
 class Header extends React.Component {
@@ -14,7 +15,7 @@ class Header extends React.Component {
     return (
       <header className="App_header">
         <p className="header__text-introduction">Bienvenido a</p>
-        <h1>CV-Helper</h1>
+        <h1 className="header__title">CV-Helper</h1>
         <p className="header__text-introduction">
           Te ayudaremos a recopilar tu informacion para que conozcas que debe
           llevar tu Curriculum Vitae.
