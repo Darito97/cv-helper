@@ -52,7 +52,11 @@ export default class ExperienceForm extends Component {
   }
   render() {
     return (
-      <form className="forms__form" ref={this.refExperienceForm}>
+      <form
+        onSubmit={(e) => this.ShowInformation(e)}
+        className="forms__form"
+        ref={this.refExperienceForm}
+      >
         <button
           className="form__button-back"
           onClick={(e) => this.PreviousForm(e)}
@@ -82,6 +86,7 @@ export default class ExperienceForm extends Component {
             onChange={(e) =>
               this.ChangeValueOfState(e.target.value, "companyName")
             }
+            required
           />
         </div>
         <div className="form__input-group">
@@ -95,6 +100,7 @@ export default class ExperienceForm extends Component {
             placeholder="Ej: Software engineer"
             value={this.state.jobName}
             onChange={(e) => this.ChangeValueOfState(e.target.value, "jobName")}
+            required
           />
         </div>
         <div className="form__input-group">
@@ -108,6 +114,7 @@ export default class ExperienceForm extends Component {
             placeholder="8 meses"
             value={this.state.jobTime}
             onChange={(e) => this.ChangeValueOfState(e.target.value, "jobTime")}
+            required
           />
         </div>
         <div className="form__input-group">
@@ -124,13 +131,10 @@ export default class ExperienceForm extends Component {
             onChange={(e) =>
               this.ChangeValueOfState(e.target.value, "mainTasks")
             }
+            required
           ></textarea>
         </div>
-        <button
-          type="submit"
-          className="form__button-submit"
-          onClick={(e) => this.ShowInformation(e)}
-        >
+        <button type="submit" className="form__button-submit">
           Agregar información
           <svg
             xmlns="http://www.w3.org/2000/svg"

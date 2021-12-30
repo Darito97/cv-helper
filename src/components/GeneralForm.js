@@ -52,7 +52,11 @@ export default class GeneralForm extends Component {
   }
   render() {
     return (
-      <form className="forms__form" ref={this.refGeneralForm}>
+      <form
+        className="forms__form"
+        ref={this.refGeneralForm}
+        onSubmit={(e) => this.NextForm(e)}
+      >
         <button
           className="form__button-back"
           onClick={(e) => this.BackToHeader(e)}
@@ -80,6 +84,7 @@ export default class GeneralForm extends Component {
             placeholder="Ej: David Alonso"
             value={this.state.name}
             onChange={(e) => this.ChangeValueOfState(e.target.value, "name")}
+            required
           />
         </div>
         <div className="form__input-group">
@@ -93,6 +98,7 @@ export default class GeneralForm extends Component {
             placeholder="Ej: tucorreo@algo.com"
             value={this.state.email}
             onChange={(e) => this.ChangeValueOfState(e.target.value, "email")}
+            required
           />
         </div>
         <div className="form__input-group">
@@ -106,6 +112,7 @@ export default class GeneralForm extends Component {
             placeholder="1234567890"
             value={this.state.number}
             onChange={(e) => this.ChangeValueOfState(e.target.value, "number")}
+            required
           />
         </div>
         <div className="form__input-group">
@@ -119,13 +126,10 @@ export default class GeneralForm extends Component {
             placeholder="Desarrollador web"
             value={this.state.job}
             onChange={(e) => this.ChangeValueOfState(e.target.value, "job")}
+            required
           />
         </div>
-        <button
-          type="submit"
-          className="form__button-submit"
-          onClick={(e) => this.NextForm(e)}
-        >
+        <button type="submit" className="form__button-submit">
           Agregar información
           <svg
             xmlns="http://www.w3.org/2000/svg"

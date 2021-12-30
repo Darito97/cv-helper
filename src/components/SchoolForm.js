@@ -59,7 +59,11 @@ export default class SchoolForm extends Component {
   }
   render() {
     return (
-      <form className="forms__form" ref={this.refSchoolForm}>
+      <form
+        className="forms__form"
+        ref={this.refSchoolForm}
+        onSubmit={(e) => this.NextForm(e)}
+      >
         <button
           className="form__button-back"
           onClick={(e) => this.previousForm(e)}
@@ -89,6 +93,7 @@ export default class SchoolForm extends Component {
             onChange={(e) =>
               this.ChangeValueOfState(e.target.value, "schoolName")
             }
+            required
           />
         </div>
         <div className="form__input-group">
@@ -105,6 +110,7 @@ export default class SchoolForm extends Component {
               this.ChangeValueOfState(e.target.value, "carrerName")
             }
             defaultChecked={this.state.isStuding}
+            required
           />
         </div>
         <div className="form__input-group">
@@ -118,6 +124,7 @@ export default class SchoolForm extends Component {
             value={this.state.date}
             disabled={this.state.isStuding}
             onChange={(e) => this.ChangeValueOfState(e.target.value, "date")}
+            required={this.state.isStuding ? false : true}
           />
           <input
             type="checkbox"
@@ -129,11 +136,7 @@ export default class SchoolForm extends Component {
           />
           <label htmlFor="stillStuding">Todavía estoy estudiando</label>
         </div>
-        <button
-          type="submit"
-          className="form__button-submit"
-          onClick={(e) => this.NextForm(e)}
-        >
+        <button type="submit" className="form__button-submit">
           Agregar información
           <svg
             xmlns="http://www.w3.org/2000/svg"
