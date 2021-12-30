@@ -99,7 +99,7 @@ export default class SchoolForm extends Component {
             className="input-group__input"
             type="text"
             name="carrerName"
-            placeholder="Ej: Tecnico en computacion"
+            placeholder="Ej: Técnico en computación"
             value={this.state.carrerName}
             onChange={(e) =>
               this.ChangeValueOfState(e.target.value, "carrerName")
@@ -109,7 +109,7 @@ export default class SchoolForm extends Component {
         </div>
         <div className="form__input-group">
           <label htmlFor="date" className="input-group__label">
-            Ingresa la fecha de finalizacion de tu estudio:
+            Ingresa la fecha de finalización de tu estudio:
           </label>
           <input
             className="input-group__input"
@@ -127,14 +127,14 @@ export default class SchoolForm extends Component {
               this.ChangeValueOfState(e.target.checked, "isStuding")
             }
           />
-          <label htmlFor="stillStuding">Todavia estoy estudiando</label>
+          <label htmlFor="stillStuding">Todavía estoy estudiando</label>
         </div>
         <button
           type="submit"
           className="form__button-submit"
           onClick={(e) => this.NextForm(e)}
         >
-          Agregar informacion
+          Agregar información
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"

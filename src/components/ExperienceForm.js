@@ -71,7 +71,7 @@ export default class ExperienceForm extends Component {
         <h2 className="form__title">Experiencia laboral</h2>
         <div className="form__input-group">
           <label className="input-group__label" htmlFor="companyName">
-            Nombre de la compañia
+            Nombre de la compañía
           </label>
           <input
             className="input-group__input"
@@ -99,7 +99,7 @@ export default class ExperienceForm extends Component {
         </div>
         <div className="form__input-group">
           <label className="input-group__label" htmlFor="jobTime">
-            ¿Cuanto tiempo trabajaste ahi? (en meses)
+            ¿Cuanto tiempo trabajaste ahí? (en meses)
           </label>
           <input
             className="input-group__input"
@@ -131,7 +131,7 @@ export default class ExperienceForm extends Component {
           className="form__button-submit"
           onClick={(e) => this.ShowInformation(e)}
         >
-          Agregar informacion
+          Agregar información
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"

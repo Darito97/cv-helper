@@ -22,7 +22,7 @@ class Header extends React.Component {
         <p className="header__text-introduction">Bienvenido a</p>
         <h1 className="header__title">CV-Helper</h1>
         <p className="header__text-introduction">
-          Te ayudaremos a recopilar tu informacion para que conozcas que debe
+          Te ayudaremos a recopilar tú información para que conozcas que debe
           llevar tu Curriculum Vitae.
         </p>
         <button className="header__button" onClick={(e) => this.NextPage(e)}>

@@ -68,7 +68,7 @@ export default class GeneralForm extends Component {
             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
           </svg>
         </button>
-        <h2 className="form__title">Informacion general</h2>
+        <h2 className="form__title">Información general</h2>
         <div className="form__input-group">
           <label htmlFor="name" className="input-group__label">
             Ingresa tu nombre completo:
@@ -84,7 +84,7 @@ export default class GeneralForm extends Component {
         </div>
         <div className="form__input-group">
           <label htmlFor="email" className="input-group__label">
-            Ingresa tu correo electronico:
+            Ingresa tu correo electrónico:
           </label>
           <input
             className="input-group__input"
@@ -97,7 +97,7 @@ export default class GeneralForm extends Component {
         </div>
         <div className="form__input-group">
           <label htmlFor="phoneNumber" className="input-group__label">
-            Ingresa tu numero de telefono:
+            Ingresa tu numero de teléfono:
           </label>
           <input
             className="input-group__input"
@@ -126,7 +126,7 @@ export default class GeneralForm extends Component {
           className="form__button-submit"
           onClick={(e) => this.NextForm(e)}
         >
-          Agregar informacion
+          Agregar información
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"

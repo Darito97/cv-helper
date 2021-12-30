@@ -25,7 +25,7 @@ class InfoSection extends React.Component {
           }
           return "";
         })}
-        {cleanFields ? '' : <h4 className="section-info__subtitle">No hay informacion</h4>}
+        {cleanFields ? '' : <h4 className="section-info__subtitle">No hay información</h4>}
       </section>
     );
   }

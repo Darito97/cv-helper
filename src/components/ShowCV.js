@@ -34,19 +34,19 @@ class ShowCV extends React.Component {
               Me llamo {name} y soy {job}.
             </h2>
           </div>
-          <h2 className="info-section__title">Informacion academica</h2>
+          <h2 className="info-section__title">Información académica</h2>
           <p className="info-section__text">
             Escuela: {schoolName} <br />
-            Titulo: {carrerName} <br />
+            Título: {carrerName} <br />
             {isStuding
               ? "Estudiando actualmente"
               : "Finalizada en " + date.split("").reverse().join("")}
           </p>
           <h2 className="info-section__title">Experiencia laboral</h2>
           <p className="info-section__text">
-            Mi anterior trabajo fue en {companyName}, trabaje durante {jobTime}{" "}
+            Mi anterior trabajo fue en {companyName}, trabajé durante {jobTime}{" "}
             como {jobName}. <br />
-            Las principales tareas que realice fueron: {mainTasks.toLowerCase()}
+            Las principales tareas que realicé fueron: {mainTasks.toLowerCase()}
             .
           </p>
           <h2 className="info-section__title">Informacion de contacto</h2>
@@ -70,7 +70,7 @@ class ShowCV extends React.Component {
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z" />
             </svg>
-            Editar informacion
+            Editar información
           </button>
           <button className="show-cv__button" onClick={this.Print}>
             <svg
