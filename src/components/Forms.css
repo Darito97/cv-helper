@@ -11,6 +11,9 @@
   border: 2px solid #121212;
   border-radius: 4px;
 }
+.form__button-back:active{
+  border: 2px solid #898989;
+}
 
 .form__title {
   margin-top: 10px;
@@ -55,4 +58,7 @@
   color: #121212;
   font-size: 17px;
   font-weight: 500;
+}
+.form__button-submit:active{
+  border: 2px solid #898989;
 }

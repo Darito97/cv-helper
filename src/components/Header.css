@@ -17,3 +17,6 @@
   font-size: 17px;
   font-weight: 500;
 }
+.header__button:active{
+  border: 2px solid #898989;
+}

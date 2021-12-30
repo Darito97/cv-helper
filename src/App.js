@@ -14,7 +14,7 @@ class App extends React.Component {
           name: "",
           email: "",
           number: "",
-          job: ""
+          job: "",
         },
         SchoolInfo: {
           schoolName: "",
@@ -85,7 +85,12 @@ class App extends React.Component {
             }
           />
         ) : (
-          <ShowCV Info={this.state.Info} />
+          <ShowCV
+            Info={this.state.Info}
+            ChangeRenderedComponent={(nameOfComponent) =>
+              this.ChangeRenderedComponent(nameOfComponent)
+            }
+          />
         )}
       </div>
     );
