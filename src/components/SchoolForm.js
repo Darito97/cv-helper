@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export default class SchoolForm extends Component {
   constructor(props) {
     super(props);
+    this.refForm = React.createRef();
     this.state = { ...this.props.Info };
     this.previousForm = this.previousForm.bind(this);
     this.NextForm = this.NextForm.bind(this);
@@ -10,17 +11,17 @@ export default class SchoolForm extends Component {
   }
   previousForm(e) {
     e.preventDefault();
-    e.nativeEvent.path[2].classList.add("disappearToTheTop");
+    this.refForm.current.classList.add("disappearToTheTop");
     setTimeout(() => {
-      e.nativeEvent.path[2].classList.remove("disappearToTheTop");
+      this.refForm.current.classList.remove("disappearToTheTop");
       this.props.formRendered("GeneralForm");
     }, 500);
   }
   NextForm(e) {
     e.preventDefault();
-    e.nativeEvent.path[2].classList.add("disappearToTheTop");
+    this.refForm.current.classList.add("disappearToTheTop");
     setTimeout(() => {
-      e.nativeEvent.path[2].classList.remove("disappearToTheTop");
+      this.refForm.current.classList.remove("disappearToTheTop");
       let objectWithChanges = { ...this.state };
       this.props.ChangeInfoState("SchoolInfo", objectWithChanges);
       this.props.formRendered("ExperienceForm");
@@ -58,7 +59,7 @@ export default class SchoolForm extends Component {
   }
   render() {
     return (
-      <form className="forms__form">
+      <form className="forms__form" ref={this.refForm}>
         <button
           className="form__button-back"
           onClick={(e) => this.previousForm(e)}

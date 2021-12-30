@@ -4,20 +4,21 @@ import React from "react";
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.refHeader = React.createRef();
     this.NextPage = this.NextPage.bind(this);
   }
   NextPage(e) {
     e.preventDefault();
-    e.nativeEvent.path[2].classList.add("disappearToTheTop");
+    this.refHeader.current.classList.add("disappearToTheTop");
     setTimeout(() => {
-      e.nativeEvent.path[2].classList.remove("disappearToTheTop");
-    this.props.ChangeRenderedComponent("getInformation");
-  }, 500);
+      this.refHeader.current.classList.remove("disappearToTheTop");
+      this.props.ChangeRenderedComponent("getInformation");
+    }, 500);
   }
 
   render() {
     return (
-      <header className="App_header">
+      <header className="App_header" ref={this.refHeader}>
         <p className="header__text-introduction">Bienvenido a</p>
         <h1 className="header__title">CV-Helper</h1>
         <p className="header__text-introduction">
