@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class GeneralForm extends Component {
   constructor(props) {
     super(props);
-    this.refFormContainer = React.createRef();
+    this.refGeneralForm = React.createRef();
     this.state = { ...this.props.Info };
     this.BackToHeader = this.BackToHeader.bind(this);
     this.NextForm = this.NextForm.bind(this);
@@ -11,17 +11,17 @@ export default class GeneralForm extends Component {
   }
   BackToHeader(e) {
     e.preventDefault();
-    this.refFormContainer.current.classList.add("disappearToTheTop");
+    this.refGeneralForm.current.classList.add("disappearToTheTop");
     setTimeout(() => {
-      this.refFormContainer.current.classList.remove("disappearToTheTop");
+      this.refGeneralForm.current.classList.remove("disappearToTheTop");
       this.props.ChangeRenderedComponent("header");
     }, 500);
   }
   NextForm(e) {
     e.preventDefault();
-    this.refFormContainer.current.classList.add("disappearToTheTop");
+    this.refGeneralForm.current.classList.add("disappearToTheTop");
     setTimeout(() => {
-      this.refFormContainer.current.classList.remove("disappearToTheTop");
+      this.refGeneralForm.current.classList.remove("disappearToTheTop");
       let objectWithChanges = { ...this.state };
       this.props.ChangeInfoState("GeneralInfo", objectWithChanges);
       this.props.formRendered("SchoolForm");
@@ -52,7 +52,7 @@ export default class GeneralForm extends Component {
   }
   render() {
     return (
-      <form className="forms__form" ref={this.refFormContainer}>
+      <form className="forms__form" ref={this.refGeneralForm}>
         <button
           className="form__button-back"
           onClick={(e) => this.BackToHeader(e)}

@@ -1,5 +1,5 @@
 .App_header{
-  animation: appearFromTheBottom 0.8s linear;
+  animation: appearFromTheBottom 0.7s linear;
 }
 .header__text-introduction{
   color: #595959;

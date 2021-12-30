@@ -4,13 +4,14 @@ import React from "react";
 class ShowCV extends React.Component {
   constructor(props) {
     super(props);
+    this.refShowCV = React.createRef()
     this.ChangeInformation = this.ChangeInformation.bind(this);
     this.Print = this.Print.bind(this);
   }
   ChangeInformation(e) {
-    e.nativeEvent.path[2].classList.add("disappearToTheTop");
+    this.refShowCV.current.classList.add("disappearToTheTop");
     setTimeout(() => {
-      e.nativeEvent.path[2].classList.remove("disappearToTheTop");
+      this.refShowCV.current.classList.remove("disappearToTheTop");
       this.props.ChangeRenderedComponent("getInformation");
     }, 500);
   }
@@ -25,7 +26,7 @@ class ShowCV extends React.Component {
     const { companyName, jobName, mainTasks, jobTime } =
       this.props.Info.ExperienceInfo;
     return (
-      <main className="App__show-cv">
+      <main className="App__show-cv" ref={this.refShowCV}>
         <section className="show-cv__info-section">
           <div className="info-section__info-principal">
             <div className="info-principal__image">Pegar foto</div>
