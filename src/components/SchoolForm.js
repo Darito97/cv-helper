@@ -10,13 +10,21 @@ export default class SchoolForm extends Component {
   }
   previousForm(e) {
     e.preventDefault();
-    this.props.formRendered("GeneralForm");
+    e.nativeEvent.path[2].classList.add("disappearToTheTop");
+    setTimeout(() => {
+      e.nativeEvent.path[2].classList.remove("disappearToTheTop");
+      this.props.formRendered("GeneralForm");
+    }, 500);
   }
   NextForm(e) {
     e.preventDefault();
-    let objectWithChanges = { ...this.state };
-    this.props.ChangeInfoState("SchoolInfo", objectWithChanges);
-    this.props.formRendered("ExperienceForm");
+    e.nativeEvent.path[2].classList.add("disappearToTheTop");
+    setTimeout(() => {
+      e.nativeEvent.path[2].classList.remove("disappearToTheTop");
+      let objectWithChanges = { ...this.state };
+      this.props.ChangeInfoState("SchoolInfo", objectWithChanges);
+      this.props.formRendered("ExperienceForm");
+    }, 500);
   }
   ChangeValueOfState(value, fieldToChange) {
     let newState = {};

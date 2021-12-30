@@ -10,13 +10,21 @@ export default class GeneralForm extends Component {
   }
   BackToHeader(e) {
     e.preventDefault();
-    this.props.ChangeRenderedComponent("header");
+    e.nativeEvent.path[2].classList.add("disappearToTheTop");
+    setTimeout(() => {
+      e.nativeEvent.path[2].classList.remove("disappearToTheTop");
+      this.props.ChangeRenderedComponent("header");
+    }, 500);
   }
   NextForm(e) {
     e.preventDefault();
-    let objectWithChanges = { ...this.state };
-    this.props.ChangeInfoState("GeneralInfo", objectWithChanges);
-    this.props.formRendered("SchoolForm");
+    e.nativeEvent.path[1].classList.add("disappearToTheTop");
+    setTimeout(() => {
+      e.nativeEvent.path[1].classList.remove("disappearToTheTop");
+      let objectWithChanges = { ...this.state };
+      this.props.ChangeInfoState("GeneralInfo", objectWithChanges);
+      this.props.formRendered("SchoolForm");
+    }, 500);
   }
   ChangeValueOfState(value, fieldToChange) {
     let newState = {};

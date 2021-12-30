@@ -8,7 +8,11 @@ class Header extends React.Component {
   }
   NextPage(e) {
     e.preventDefault();
+    e.nativeEvent.path[2].classList.add("disappearToTheTop");
+    setTimeout(() => {
+      e.nativeEvent.path[2].classList.remove("disappearToTheTop");
     this.props.ChangeRenderedComponent("getInformation");
+  }, 500);
   }
 
   render() {

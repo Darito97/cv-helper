@@ -4,8 +4,22 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-}
 
+  animation: appearFromTheBottom 0.7s ease-out;
+}
+@keyframes appearFromTheBottom{
+  0%{
+    transform: translateY(40%);
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .form__button-back {
   background-color: #f5f5f5;
   border: 2px solid #121212;

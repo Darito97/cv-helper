@@ -5,9 +5,17 @@ class ShowCV extends React.Component {
   constructor(props) {
     super(props);
     this.ChangeInformation = this.ChangeInformation.bind(this);
+    this.Print = this.Print.bind(this);
   }
-  ChangeInformation() {
-    this.props.ChangeRenderedComponent("getInformation");
+  ChangeInformation(e) {
+    e.nativeEvent.path[2].classList.add("disappearToTheTop");
+    setTimeout(() => {
+      e.nativeEvent.path[2].classList.remove("disappearToTheTop");
+      this.props.ChangeRenderedComponent("getInformation");
+    }, 500);
+  }
+  Print() {
+    window.print();
   }
 
   render() {
@@ -19,9 +27,12 @@ class ShowCV extends React.Component {
     return (
       <main className="App__show-cv">
         <section className="show-cv__info-section">
-          <h2 className="info-section__title --title-principal">
-            Me llamo {name} y soy {job}.
-          </h2>
+          <div className="info-section__info-principal">
+            <div className="info-principal__image">Pegar foto</div>
+            <h2 className="info-principal__title">
+              Me llamo {name} y soy {job}.
+            </h2>
+          </div>
           <h2 className="info-section__title">Informacion academica</h2>
           <p className="info-section__text">
             Escuela: {schoolName} <br />
@@ -37,7 +48,7 @@ class ShowCV extends React.Component {
             Las principales tareas que realice fueron: {mainTasks.toLowerCase()}
             .
           </p>
-          <h2>Informacion de contacto</h2>
+          <h2 className="info-section__title">Informacion de contacto</h2>
           <p className="info-section__text">
             Puedes contactarme mandando un email a {email} o llamando a el{" "}
             {number}.
@@ -46,7 +57,7 @@ class ShowCV extends React.Component {
         <section className="show-cv__buttons">
           <button
             className="show-cv__button"
-            onClick={() => this.ChangeInformation()}
+            onClick={(e) => this.ChangeInformation(e)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +71,7 @@ class ShowCV extends React.Component {
             </svg>
             Editar informacion
           </button>
-          <button className="show-cv__button">
+          <button className="show-cv__button" onClick={this.Print}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
