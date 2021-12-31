@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CV-Helper",
+  "name": "Un sitio web que te permite crear un curriculum vitae basico creado con React",
   "icons": [
     {
       "src": "favicon.ico",

@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/cv-helper/static/js/runtime~main.c86127f0.js"
   },
   {
-    "revision": "8a8d094b20e95b6a3464c6fcb9585734",
+    "revision": "143908b4d79be7cdc36a93910478ec4d",
     "url": "/cv-helper/index.html"
   }
 ];
